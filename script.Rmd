@@ -56,22 +56,27 @@ freedom_house <- tibble(
 
 ```{r}
 
+colors <- c("Polity" = "blue", "FiW" = "black", "Electoral Democracy" = "red",
+            "Liberal Democracy" = "orange", "Participatory Democracy" = "maroon",
+            "Civil Liberty" = "dark blue")
+
 ggplot()+
-  geom_line(data = polity, aes(x = year, y = polity), color = "blue") + 
-  geom_line(data = freedom_house, aes(x = year, y = score), color = "black") +
-  geom_line(data = vdem, aes(x = year, y = v2x_polyarchy), color = "red") + 
-  geom_line(data = vdem, aes(x = year, y = v2x_libdem), color = "orange") + 
-  geom_line(data = vdem, aes(x = year, y = v2x_partipdem), color = "maroon") + 
-  geom_line(data = vdem, aes(x = year, y = v2x_civlib), color = "dark blue") + 
-  scale_color_discrete(name = "Scales", labels = c("Polity", "FiW", "")) +
+  geom_line(data = polity, aes(x = year, y = polity, color = "Polity")) + 
+  geom_line(data = freedom_house, aes(x = year, y = score, color = "FiW")) +
+  geom_line(data = vdem, aes(x = year, y = v2x_polyarchy, color = "Electoral Democracy")) + 
+  geom_line(data = vdem, aes(x = year, y = v2x_libdem, color = "Liberal Democracy")) + 
+  geom_line(data = vdem, aes(x = year, y = v2x_partipdem, color = "Participatory Democracy")) + 
+  geom_line(data = vdem, aes(x = year, y = v2x_civlib, color = "Civil Liberty")) + 
+  scale_color_manual(values = colors) + 
   ylim(0,0.5) + 
   xlim(2000,2019) + 
   geom_vline(aes(xintercept = 2012), alpha = 0.5) + 
   labs(x = "Year",
        y = "Standardized Freedom Index",
        title = "Standardized V-Dem, Polity, and Freedom in the World Scores for China",
-       subtitle = "China hasn't surpassed 0.4 on any of these major freedom scales in the 21st Century") + 
-  annotate("text", x = 2015, y = 0.4, label = "Xi Jinping assumes office", color = "#3A3B3C")
+       subtitle = "China hasn't surpassed 0.4 on any of these major freedom scales in the 21st Century",
+       color = "Standardized Rating System") + 
+  annotate("text", x = 2016, y = 0.4, label = "Xi Jinping assumes office", color = "#3A3B3C", size = 3)
 
 ```
 

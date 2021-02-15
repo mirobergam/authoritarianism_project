@@ -72,7 +72,7 @@ ggplot()+
   xlim(2000,2019) + 
   geom_vline(aes(xintercept = 2012), alpha = 0.5) + 
   labs(x = "Year",
-       y = "Standardized Freedom Index",
+       y = "Standardized Democracy Index",
        title = "Standardized V-Dem, Polity, and Freedom in the World Scores for China",
        subtitle = "China hasn't surpassed 0.4 on any of these major freedom scales in the 21st Century",
        color = "Standardized Rating System") + 
